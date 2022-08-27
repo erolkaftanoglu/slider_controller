@@ -174,7 +174,7 @@ class RenderSliderController extends RenderBox {
         ..shader = LinearGradient(
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
-                colors: sliderDecoration.activeColorArray!)
+                colors: sliderDecoration.activeColorArray!.reversed.toList())
             .createShader(rect)
         ..strokeCap = StrokeCap.round
         ..strokeWidth = _strokeWidth;
