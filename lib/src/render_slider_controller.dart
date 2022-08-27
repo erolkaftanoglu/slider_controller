@@ -160,10 +160,25 @@ class RenderSliderController extends RenderBox {
       ..strokeWidth = _strokeWidth;
 
     /// Painter for the active part of slider
-    final activeSliderPainter = Paint()
-      ..color = _sliderDecoration.activeColor
-      ..strokeCap = StrokeCap.round
-      ..strokeWidth = _strokeWidth;
+
+    final activeSliderPainter = Paint();
+
+    if (sliderDecoration.activeColorArray == null) {
+      activeSliderPainter
+        ..color = _sliderDecoration.activeColor
+        ..strokeCap = StrokeCap.round
+        ..strokeWidth = _strokeWidth;
+    } else {
+      var rect = Offset.zero & size;
+      activeSliderPainter
+        ..shader = LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: sliderDecoration.activeColorArray!)
+            .createShader(rect)
+        ..strokeCap = StrokeCap.round
+        ..strokeWidth = _strokeWidth;
+    }
 
     /// Painter for the slider thumb
     final thumbPainter = Paint()..color = _sliderDecoration.thumbColor;

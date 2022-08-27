@@ -11,6 +11,7 @@ class SliderDecoration {
   /// Defines the background color of the active part of the slider
   /// Default value [Colors.blue]
   final Color activeColor;
+  final List<Color>? activeColorArray;
 
   /// Defines the thumb color of the slider
   /// Default value [Colors.white]
@@ -43,6 +44,7 @@ class SliderDecoration {
   SliderDecoration({
     this.inactiveColor = Colors.blueGrey,
     this.activeColor = Colors.blue,
+    this.activeColorArray = null,
     this.thumbColor = Colors.white,
     this.borderRadius = 20.0,
     this.height = 50.0,
